@@ -12,7 +12,7 @@ Requires Neovim 0.10+ and [snacks.nvim](https://github.com/folke/snacks.nvim) fo
 ## Install
 
 ```lua
-{ "you/altex", dependencies = { "folke/snacks.nvim" }, opts = {} }
+{ "omarys/altex.nvim", dependencies = { "folke/snacks.nvim" }, opts = {} }
 ```
 
 ## Usage
