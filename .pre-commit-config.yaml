@@ -1,0 +1,32 @@
+# The luacheck hook needs `lua` and `luarocks` on PATH; mise's lua plugin
+# provides both. Everything else is downloaded by pre-commit itself.
+#
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v2.5.2
+    hooks:
+      - id: stylua-github
+
+  - repo: https://github.com/lunarmodules/luacheck
+    rev: v1.2.0
+    hooks:
+      - id: luacheck
+
+  - repo: local
+    hooks:
+      - id: altex-selfcheck
+        name: altex self-check
+        entry: nvim -l test/altex.lua
+        language: system
+        pass_filenames: false
+        files: ^(lua|plugin)/.*\.lua$

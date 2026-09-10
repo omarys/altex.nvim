@@ -1,0 +1,18 @@
+# No build step exists — altex is a Lua plugin. This pins the tools needed to
+# test and format it, and defines the tasks so pre-commit and CI call one command.
+
+[tools]
+neovim = "0.12.5"
+stylua = "2.5.2"
+
+[tasks.test]
+description = "Run the altex self-check"
+run = "nvim -l test/altex.lua"
+
+[tasks.fmt]
+description = "Format the Lua sources"
+run = "stylua lua plugin test"
+
+[tasks.fmt-check]
+description = "Check formatting without writing"
+run = "stylua --check lua plugin test"
