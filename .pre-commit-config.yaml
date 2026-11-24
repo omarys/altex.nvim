@@ -18,7 +18,10 @@ repos:
       - id: stylua-github
 
   - repo: https://github.com/lunarmodules/luacheck
-    rev: v1.2.0
+    # Pinned past v1.2.0 (unreleased master): the released tag crashes on
+    # Lua 5.5 (loop vars are const; standards.lua:134 reassigns one).
+    # Drop back to the latest tag once luacheck > 1.2.0 is released.
+    rev: 2f764bdcabe8b7c19deadf0e9bb2adc19df1a4c5
     hooks:
       - id: luacheck
 
